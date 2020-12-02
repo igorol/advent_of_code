@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def count_valid_pwds(pw_list, policy="old"):
+def count_valid_pwds(pw_list, policy="new"):
 
     resp = []
     for pw_line in pw_list:
@@ -22,13 +22,12 @@ def count_valid_pwds(pw_list, policy="old"):
 with open("day2.input", "r") as f:
     in_list = [i.rstrip() for i in f.readlines()]
 
-
 test_list = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]
 
-assert count_valid_pwds(test_list) == 2
+assert count_valid_pwds(test_list, policy="old") == 2
 
-print("Part 1", count_valid_pwds(in_list))
+print("Part 1", count_valid_pwds(in_list, policy="old"))
 
-assert count_valid_pwds(test_list, policy="new") == 1
+assert count_valid_pwds(test_list) == 1
 
-print("Part 2", count_valid_pwds(in_list, policy="new"))
+print("Part 2", count_valid_pwds(in_list))
