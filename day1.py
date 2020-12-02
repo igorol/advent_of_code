@@ -1,11 +1,12 @@
 import itertools
 import numpy as np
+import time
 
 
 def expenses(in_list, n):
-    for i in itertools.combinations(in_list, n):
-        if np.sum(i) == 2020:
-            return np.prod(i)
+    arr = np.array(list(itertools.combinations(in_list, n)))
+    mask = arr.sum(axis=1) == 2020
+    return np.prod(arr[mask])
 
 
 test_list = [1721, 979, 366, 299, 675, 1456]
@@ -20,3 +21,4 @@ print("Part1", expenses(in_list, 2))
 assert expenses(test_list, 3) == 241861950
 
 print("Part2", expenses(in_list, 3))
+
