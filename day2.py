@@ -1,32 +1,21 @@
 import numpy as np
 
 
-def count_valid_pwds(pw_list):
+def count_valid_pwds(pw_list, policy="old"):
 
     resp = []
-
-    for pw_line in pw_list:
-        items = pw_line.split(" ")
-        least = int(items[0].split("-")[0])
-        most = int(items[0].split("-")[-1])
-        letter, pw = items[1][0], items[-1]
-        letter_count = pw.count(letter)
-        resp.append(most >= letter_count >= least)
-
-    return np.sum(resp)
-
-
-def count_valid_pwds_new_policy(pw_list):
-
-    resp = []
-
     for pw_line in pw_list:
         items = pw_line.split(" ")
         letter, pw = items[1][0], items[-1]
-        position_1 = int(items[0].split("-")[0]) - 1
-        position_2 = int(items[0].split("-")[-1]) - 1
-        resp.append((pw[position_1] == letter) ^ (pw[position_2] == letter))
-
+        if policy == "old":
+            least = int(items[0].split("-")[0])
+            most = int(items[0].split("-")[-1])
+            letter_count = pw.count(letter)
+            resp.append(most >= letter_count >= least)
+        elif policy == "new":
+            position_1 = int(items[0].split("-")[0]) - 1
+            position_2 = int(items[0].split("-")[-1]) - 1
+            resp.append((pw[position_1] == letter) ^ (pw[position_2] == letter))
     return np.sum(resp)
 
 
@@ -40,7 +29,6 @@ assert count_valid_pwds(test_list) == 2
 
 print("Part 1", count_valid_pwds(in_list))
 
-assert count_valid_pwds_new_policy(test_list) == 1
+assert count_valid_pwds(test_list, policy="new") == 1
 
-print("Part 2", count_valid_pwds_new_policy(in_list))
-
+print("Part 2", count_valid_pwds(in_list, policy="new"))
