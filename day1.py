@@ -1,6 +1,5 @@
 import itertools
 import numpy as np
-import time
 
 
 def expenses(in_list, n):
