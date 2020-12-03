@@ -8,16 +8,17 @@ def expenses(in_list, n):
     return np.prod(arr[mask])
 
 
-test_list = [1721, 979, 366, 299, 675, 1456]
+if __name__ == "__main__":
 
-assert expenses(test_list, 2) == 514579
+    test_list = [1721, 979, 366, 299, 675, 1456]
 
-with open("day1.input", "r") as f:
-    in_list = [int(i.rstrip()) for i in f.readlines()]
+    assert expenses(test_list, 2) == 514579
 
-print("Part1", expenses(in_list, 2))
+    with open("day1.input", "r") as f:
+        in_list = [int(i.rstrip()) for i in f.readlines()]
 
-assert expenses(test_list, 3) == 241861950
+    print("Part1", expenses(in_list, 2))
 
-print("Part2", expenses(in_list, 3))
+    assert expenses(test_list, 3) == 241861950
 
+    print("Part2", expenses(in_list, 3))

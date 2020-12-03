@@ -19,15 +19,17 @@ def count_valid_pwds(pw_list, policy="new"):
     return np.sum(resp)
 
 
-with open("day2.input", "r") as f:
-    in_list = [i.rstrip() for i in f.readlines()]
+if __name__ == "__main__":
 
-test_list = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]
+    with open("day2.input", "r") as f:
+        in_list = [i.rstrip() for i in f.readlines()]
 
-assert count_valid_pwds(test_list, policy="old") == 2
+    test_list = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]
 
-print("Part 1", count_valid_pwds(in_list, policy="old"))
+    assert count_valid_pwds(test_list, policy="old") == 2
 
-assert count_valid_pwds(test_list) == 1
+    print("Part 1", count_valid_pwds(in_list, policy="old"))
 
-print("Part 2", count_valid_pwds(in_list))
+    assert count_valid_pwds(test_list) == 1
+
+    print("Part 2", count_valid_pwds(in_list))
