@@ -69,7 +69,9 @@ def read_input(fn):
     return [parse_passport(p) for p in r.split("\n\n")]
 
 
-example_batch = """ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
+if __name__ == "__main__":
+
+    example_batch = """ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
 byr:1937 iyr:2017 cid:147 hgt:183cm
 
 iyr:2013 ecl:amb cid:350 eyr:2023 pid:028048884
@@ -83,12 +85,12 @@ hgt:179cm
 hcl:#cfa07d eyr:2025 pid:166559648
 iyr:2011 ecl:brn hgt:59in"""
 
-example_batch = [
-    parse_passport(p) for p in example_batch.split(os.linesep + os.linesep)
-]
-assert count_valid_passports(example_batch) == 2
+    example_batch = [
+        parse_passport(p) for p in example_batch.split(os.linesep + os.linesep)
+    ]
+    assert count_valid_passports(example_batch) == 2
 
-passport_list = read_input("day4.input")
-print("Part 1", count_valid_passports(passport_list))
+    passport_list = read_input("day4.input")
+    print("Part 1", count_valid_passports(passport_list))
 
-print("Part 2", count_valid_passports(passport_list, strict=True))
+    print("Part 2", count_valid_passports(passport_list, strict=True))
