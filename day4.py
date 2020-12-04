@@ -6,9 +6,7 @@ def is_passport_valid(passport_dict, strict=False):
     """return true if passport contains all required and correct fields"""
 
     required = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
-
     loose_verif = all(item in passport_dict.keys() for item in required)
-
     if strict and loose_verif:
         return strictly_verify(passport_dict)
     else:
@@ -24,11 +22,11 @@ def strictly_verify(passport_dict):
     hcl = check_hcl(passport_dict["hcl"])
     ecl = passport_dict["ecl"] in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
     pid = check_pid(passport_dict["pid"])
-
     return byr and iyr and eyr and hgt and hcl and ecl and pid
 
 
 def check_hgt(dict_item):
+
     int_hgt = int("".join([c for c in dict_item if c.isdigit()]))
     unit_hgt = "".join([c for c in dict_item if not c.isdigit()])
     if unit_hgt == "cm":
@@ -37,7 +35,6 @@ def check_hgt(dict_item):
         hgt = 59 <= int_hgt <= 76
     else:
         hgt = False
-
     return hgt
 
 
@@ -46,7 +43,6 @@ def check_hcl(dict_item):
     hash_char = dict_item[0] == "#"
     letters = [char for char in dict_item[1:] if char.isalpha()]
     letters = all([char in "abcdef" for char in letters])
-
     return hash_char and item_len
 
 
@@ -57,7 +53,7 @@ def check_pid(dict_item):
 def parse_passport(passport):
     """read string, return dict"""
     passport = passport.replace("\n", " ").split(" ")
-    p = {}
+    p = dict()
     for item in passport:
         p[item.split(":")[0]] = item.split(":")[1]
     return p
@@ -70,7 +66,7 @@ def count_valid_passports(passport_list, strict=False):
 def read_input(fn):
     with open(fn) as f:
         r = f.read()
-    return r.split("\n\n")
+    return [parse_passport(p) for p in r.split("\n\n")]
 
 
 example_batch = """ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
@@ -87,12 +83,12 @@ hgt:179cm
 hcl:#cfa07d eyr:2025 pid:166559648
 iyr:2011 ecl:brn hgt:59in"""
 
-passport_list = example_batch.split(os.linesep + os.linesep)
-passport_list = [parse_passport(p) for p in passport_list]
-assert count_valid_passports(passport_list) == 2
+example_batch = [
+    parse_passport(p) for p in example_batch.split(os.linesep + os.linesep)
+]
+assert count_valid_passports(example_batch) == 2
 
-passport_list = [parse_passport(p) for p in read_input("day4.input")]
+passport_list = read_input("day4.input")
 print("Part 1", count_valid_passports(passport_list))
 
 print("Part 2", count_valid_passports(passport_list, strict=True))
-
