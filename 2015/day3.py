@@ -33,16 +33,15 @@ santa_moves = santa_moves[::2]
 init_house = [0, 0]
 santa_visited_houses = []
 santa_visited_houses.append((init_house[0], init_house[1]))
-new_pos = init_house
+new_pos = init_house[:]
 
 for move in santa_moves:
     new_pos = move_santa(new_pos, move)
     santa_visited_houses.append((new_pos[0], new_pos[1]))
 
-init_house = [0, 0]
 robo_visited_houses = []
 robo_visited_houses.append((init_house[0], init_house[1]))
-new_pos = init_house
+new_pos = init_house[:]
 
 for move in robosanta_moves:
     new_pos = move_santa(new_pos, move)
