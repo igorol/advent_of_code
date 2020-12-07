@@ -1,5 +1,4 @@
 import numpy as np
-from numpy.core.defchararray import count
 
 
 def part1(fn):
