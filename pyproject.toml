@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "advent-of-code"
+version = "0.1.0"
+description = "Submissions to the https://adventofcode.com/"
+authors = ["Igor Oliveira <mail@igoroliveira.org>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "advent_of_code"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
