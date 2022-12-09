@@ -51,4 +51,3 @@ if __name__ == "__main__":
     sl5 = count_trees(grid, right=1, down=2)
 
     print("Part 2", sl1 * sl2 * sl3 * sl4 * sl5)
-

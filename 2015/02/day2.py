@@ -1,5 +1,6 @@
-import numpy as np
 import itertools
+
+import numpy as np
 
 with open("day2.input", "r") as f:
     in_list = [[int(j) for j in i.rstrip().split("x")] for i in f.readlines()]

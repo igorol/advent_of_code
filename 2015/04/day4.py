@@ -27,4 +27,3 @@ assert mine_adventcoins("pqrstuv")[0] == 1048970
 five_zeros_number, six_zeros_number = mine_adventcoins("iwrupvqb")
 print("Part1", five_zeros_number)
 print("Part2", six_zeros_number)
-

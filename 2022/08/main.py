@@ -22,17 +22,24 @@ def scenic_score(line):
 
     scores = []
     for i, tree in enumerate(line):
-        scores_front = 0 if i in [0,len(line)-1] else _count_trees(line[i - 1 :: -1], tree) 
-        scores_back = 0 if i in [0,len(line)-1] else _count_trees(line[i + 1 :], tree)
+        scores_front = (
+            0 if i in [0, len(line) - 1] else _count_trees(line[i - 1 :: -1], tree)
+        )
+        scores_back = (
+            0 if i in [0, len(line) - 1] else _count_trees(line[i + 1 :], tree)
+        )
         scores.append(scores_front * scores_back)
 
     return scores
 
 
-visibility = np.apply_along_axis(is_visible, 1, grid) | np.apply_along_axis(is_visible, 0, grid),
+visibility = (
+    np.apply_along_axis(is_visible, 1, grid) | np.apply_along_axis(is_visible, 0, grid),
+)
 print("part 1:", np.sum(visibility))  # part 1: 1816
 
-scores = np.apply_along_axis(scenic_score, 1, grid) * np.apply_along_axis(scenic_score, 0, grid)
+scores = np.apply_along_axis(scenic_score, 1, grid) * np.apply_along_axis(
+    scenic_score, 0, grid
+)
 print(scores.shape)
 print("part 2:", np.max(scores))  # part 2: 383520
-

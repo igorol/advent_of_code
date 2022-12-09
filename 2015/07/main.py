@@ -58,7 +58,7 @@ def solve(commands, new_initial_state=None):
         for command in commands:
             if command.done:
                 continue
-            if new_initial_state is not None: # circuit starts at `b`
+            if new_initial_state is not None:  # circuit starts at `b`
                 wires["b"] = new_initial_state
             if command.arity == 2:
                 arg1 = check(wires, command.arg1)

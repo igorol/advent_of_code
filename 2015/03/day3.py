@@ -48,4 +48,3 @@ for move in robosanta_moves:
     robo_visited_houses.append((new_pos[0], new_pos[1]))
 
 print("Part2", len(set(santa_visited_houses + robo_visited_houses)))
-

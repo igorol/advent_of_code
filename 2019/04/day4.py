@@ -30,7 +30,7 @@ def never_decreasing_digits(passwd):
 
 def additional_criteria(passwd):
     """
-    return True if the two adjacent matching digits 
+    return True if the two adjacent matching digits
     are not part of a larger group of matching digits
     """
 
@@ -61,4 +61,3 @@ for passwd in range(puzzle_input[0], puzzle_input[1] + 1):
     print(f"\r Part2 : {counter} valid passwords", end="")
 
 print()
-

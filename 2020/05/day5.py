@@ -48,4 +48,3 @@ if __name__ == "__main__":
     print("Part 1", np.max([get_id(i) for i in bp_list]))
 
     print("Part 2", get_missing_seat(bp_list))
-
