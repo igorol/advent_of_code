@@ -1,6 +1,6 @@
 from collections import Counter
 
-with open("day3.input", "r") as f:
+with open("input", "r") as f:
     santa_moves = [m for m in f.read()]
 
 

@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     assert expenses(test_list, 2) == 514579
 
-    with open("day1.input", "r") as f:
+    with open("input", "r") as f:
         in_list = [int(i.rstrip()) for i in f.readlines()]
 
     print("Part1", expenses(in_list, 2))

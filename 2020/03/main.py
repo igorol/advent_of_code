@@ -1,5 +1,5 @@
 def read_grid():
-    with open("day3.input", "r") as f:
+    with open("input", "r") as f:
         grid = [i.rstrip() for i in f.readlines()]
     return grid
 

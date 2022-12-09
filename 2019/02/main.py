@@ -24,7 +24,7 @@ def intcode(list_of_codes):
 
 
 def reset_memory():
-    with open("day2_input.txt") as f:
+    with open("input") as f:
         lines = f.readlines()
         for line in lines:
             list_of_codes = list(np.fromstring(line, dtype=int, sep=","))

@@ -15,11 +15,12 @@ class Rope:
 
     def move(self, move):
         direction, steps = move.split()
-        steps = int(steps)
-        for _ in range(steps):
+        for _ in range(int(steps)):
             self.nodes[0].step(direction)
-            for tail_id in range(1, self.num_tails + 1):
+            _ = [
                 self.nodes[tail_id].follow(self.nodes[tail_id - 1])
+                for tail_id in range(1, self.num_tails + 1)
+            ]
 
 
 class RopeNode:
@@ -53,7 +54,6 @@ class RopeNode:
             case "DL":
                 self.x -= 1
                 self.y -= 1
-
         self.register_position()
 
     def follow(self, other):
@@ -87,3 +87,6 @@ print("part 1:", len(set(rope_part1.nodes[1].positions)))
 rope_part2 = Rope(0, 0, num_tails=9)
 _ = [rope_part2.move(move) for move in moves]
 print("part 2:", len(set(rope_part2.nodes[9].positions)))
+
+# part 1: 6090
+# part 2: 2566

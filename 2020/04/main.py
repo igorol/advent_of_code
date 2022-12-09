@@ -91,7 +91,7 @@ iyr:2011 ecl:brn hgt:59in"""
     ]
     assert count_valid_passports(example_batch) == 2
 
-    passport_list = read_input("day4.input")
+    passport_list = read_input("input")
     print("Part 1", count_valid_passports(passport_list))
 
     print("Part 2", count_valid_passports(passport_list, strict=True))

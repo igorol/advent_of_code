@@ -42,7 +42,7 @@ if __name__ == "__main__":
     assert get_id("FFFBBBFRRR") == 119
     assert get_id("BBFFBBFRLL") == 820
 
-    with open("day5.input", "r") as f:
+    with open("input", "r") as f:
         bp_list = [i.rstrip() for i in f.readlines()]
 
     print("Part 1", np.max([get_id(i) for i in bp_list]))

@@ -21,7 +21,7 @@ def count_valid_pwds(pw_list, policy="new"):
 
 if __name__ == "__main__":
 
-    with open("day2.input", "r") as f:
+    with open("input", "r") as f:
         in_list = [i.rstrip() for i in f.readlines()]
 
     test_list = ["1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc"]

@@ -1,4 +1,4 @@
-with open("day1.input") as f:
+with open("input") as f:
     instructions = f.read()
 
 print("Part1", instructions.count("(") - instructions.count(")"))

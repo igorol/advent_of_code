@@ -15,7 +15,7 @@ def fuel_part2(mass):
     return int(total_fuel)
 
 
-x = np.genfromtxt("day1_input.txt")
+x = np.genfromtxt("input")
 
 print(f"Part 1: {np.sum([fuel_part1(i) for i in x])}")
 print(f"Part 2: {np.sum([fuel_part2(i) for i in x])}")
