@@ -12,13 +12,6 @@ def get_elevation_array(start_string='S', end_string='E'):
     return data, start_pos, end_pos
 
 
-def render_path(points, elevation_data):
-    for j, line in enumerate(elevation_data):
-        for i, _ in enumerate(line):
-            print('#' if (j, i) in points else '.', end='')
-        print()
-
-
 def make_graph(elevation_2d_array):
     graph = nx.DiGraph(nx.grid_2d_graph(*elevation_2d_array.shape))
     for node in graph.nodes():
@@ -44,7 +37,7 @@ length = find_shortest_path_length(grid, start, end)
 print('part 1:', length)
 
 origins = [i for i in zip(np.where(elevation == ord('a'))[0], np.where(elevation == ord('a'))[1])]
-lengths = [find_shortest_path_length(grid, origin, end) for origin in origins]  # .remove(None)
+lengths = [find_shortest_path_length(grid, origin, end) for origin in origins]
 print('part 2:', int(np.nanmin(lengths)))
 
 # part 1: 440
