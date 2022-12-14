@@ -1,11 +1,8 @@
 import re
-import sys
 from dataclasses import dataclass
 from functools import reduce
 from operator import mul
 from typing import List
-
-sys.set_int_max_str_digits(100_000_000)
 
 
 @dataclass()
@@ -39,10 +36,8 @@ class KeepAway:
         return insp[0] * insp[1]
 
     def play_game(self):
-        for round in range(self.num_rounds):
-            print(f'\rPlaying round:{round + 1} of {self.num_rounds}', end='')
+        for _ in range(self.num_rounds):
             self.play_round()
-        print()
 
     def play_round(self):
         for monkey_id in range(self.num_monkeys):
@@ -68,15 +63,15 @@ class KeepAway:
     @staticmethod
     def _parse_note(monkey_id, note):
         lines = note.split('\n')
-        operation = re.search(r'()(\*|\+) (\w+)', lines[2]).group()
+        operation = re.search(r'([*+]) (\w+)', lines[2]).group()
 
         return Monkey(
             id=monkey_id,
             worry_levels=[int(item) for item in re.findall(r'\d+', lines[1])],
             num_inspections=0,
-            test_division=int(re.search(r'()(\d+)', lines[3]).group()),
-            if_true=int(re.search(r'()(\d+)', lines[4]).group()),
-            if_false=int(re.search(r'()(\d+)', lines[5]).group()),
+            test_division=int(re.search(r'(\d+)', lines[3]).group()),
+            if_true=int(re.search(r'(\d+)', lines[4]).group()),
+            if_false=int(re.search(r'(\d+)', lines[5]).group()),
             operation='** 2' if operation == '* old' else operation,
         )
 
