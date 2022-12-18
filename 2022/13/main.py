@@ -24,13 +24,16 @@ def compare(left: Union[List, int], right: Union[List, int]) -> int:
             return result
 
 
-data = open('input').read().split("\n\n")
+data = open("input").read().split("\n\n")
 pairs = [[eval(i) for i in pair.split()] for pair in data]
-print('part 1:', sum(i for i, pair in enumerate(pairs, start=1) if compare(*pair) < 0))
+print("part 1:", sum(i for i, pair in enumerate(pairs, start=1) if compare(*pair) < 0))
 
 divider_packets = [2, 6]
-comps = [sum(compare(packet, x) == 1 for pair in pairs for x in pair) + 1 for packet in divider_packets]
-print('part 2:', comps[0] * (comps[1] + 1))
+comps = [
+    sum(compare(packet, x) == 1 for pair in pairs for x in pair) + 1
+    for packet in divider_packets
+]
+print("part 2:", comps[0] * (comps[1] + 1))
 
 # part 1:  6187
 # part 2: 23520
