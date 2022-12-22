@@ -18,7 +18,7 @@ def cmd(scr, inline):
 data = open('input').read().splitlines()
 
 array = np.full((6, 50), fill_value=0)
-screen = [cmd(array, line, i) for i, line in enumerate(data)][-1]
+screen = [cmd(array, line) for i, line in enumerate(data)][-1]
 print('part 1:', np.count_nonzero(screen == 1))
 
 print('part 2: read text in image')
