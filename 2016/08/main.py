@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import re
 
 
-def cmd(scr, inline, i):
+def cmd(scr, inline):
     left_num, right_num = re.findall(r'\d+', inline)
     left_num, right_num = int(left_num), int(right_num)
     if inline.startswith('rect'):
