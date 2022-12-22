@@ -1,4 +1,4 @@
-def santa(floor = 0):
+def santa(floor=0):
     for index, instruction in enumerate(instructions):
         floor += 1 if instruction == "(" else -1
         if floor == -1:

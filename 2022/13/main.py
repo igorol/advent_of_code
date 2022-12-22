@@ -1,4 +1,4 @@
-from typing import Union, List
+from typing import List, Union
 
 
 def compare(left: Union[List, int], right: Union[List, int]) -> int:

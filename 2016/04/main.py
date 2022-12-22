@@ -10,8 +10,8 @@ def part1(in_data):
         g = re.search(pat, line).groups()
         c = Counter(g[0].replace("-", ""))
         if all(
-                i[0] in g[2]
-                for i in sorted(c.items(), key=lambda t: (-t[1], t[0]), reverse=True)[-5:]
+            i[0] in g[2]
+            for i in sorted(c.items(), key=lambda t: (-t[1], t[0]), reverse=True)[-5:]
         ):
             return int(g[1])
         return 0
@@ -35,7 +35,9 @@ def part2(in_data):
             decrypted_msg += c
         return decrypted_msg, g[1]
 
-    return [_decrypt(line)[1] for line in in_data if "northpole" in _decrypt(line)[0]][0]
+    return [_decrypt(line)[1] for line in in_data if "northpole" in _decrypt(line)[0]][
+        0
+    ]
 
 
 data = open("input").read().splitlines()
