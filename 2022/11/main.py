@@ -17,7 +17,7 @@ class Monkey:
 
 
 class KeepAway:
-    INPUT = "input"
+    INPUT = "test_input"
 
     def __init__(self, num_monkeys=8, num_rounds=20, worry_divisor=3):
         self.num_monkeys = num_monkeys

@@ -27,6 +27,5 @@ def part2(fn):
 
 
 if __name__ == "__main__":
-
-    print("Part1", part1("input"))
-    print("Part2", part2("input"))
+    print("Part1", part1("test_input"))
+    print("Part2", part2("test_input"))

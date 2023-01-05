@@ -1,6 +1,7 @@
-import numpy as np
 from itertools import pairwise
+
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.colors import ListedColormap
 
 
@@ -11,7 +12,7 @@ class Cave:
     FREE = "."
     UNAVAILABLE = [ROCK, STILL_SAND, FALLING_SAND]
 
-    def __init__(self, cave_dims=(1000, 300), sand_source=(500, 0), fname="input"):
+    def __init__(self, cave_dims=(1000, 300), sand_source=(500, 0), fname="test_input"):
         self.cave_dims = cave_dims
         self.sand_source = sand_source
         self.fname = fname
@@ -29,7 +30,7 @@ class Cave:
             ]
             for line in lines:
                 start, end = sorted(line)
-                this_cave[start[0]: end[0] + 1, start[1]: end[1] + 1] = self.ROCK
+                this_cave[start[0] : end[0] + 1, start[1] : end[1] + 1] = self.ROCK
         return this_cave
 
     def update_cave(self, new, old, stop=False):

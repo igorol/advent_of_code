@@ -14,3 +14,6 @@ print("part 1:", len(number))
 for _ in range(10):
     number = look_and_say(number)
 print("part 2:", len(number))
+
+# part 1: 360154
+# part 2: 5103798

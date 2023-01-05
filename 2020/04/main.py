@@ -15,7 +15,6 @@ def is_passport_valid(passport_dict, strict=False):
 
 
 def strictly_verify(passport_dict):
-
     byr = 1920 <= int(passport_dict["byr"]) <= 2002
     iyr = 2010 <= int(passport_dict["iyr"]) <= 2020
     eyr = 2020 <= int(passport_dict["eyr"]) <= 2030
@@ -27,7 +26,6 @@ def strictly_verify(passport_dict):
 
 
 def check_hgt(dict_item):
-
     int_hgt = int("".join([c for c in dict_item if c.isdigit()]))
     unit_hgt = "".join([c for c in dict_item if not c.isdigit()])
     if unit_hgt == "cm":
@@ -71,7 +69,6 @@ def read_input(fn):
 
 
 if __name__ == "__main__":
-
     example_batch = """ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
 byr:1937 iyr:2017 cid:147 hgt:183cm
 
@@ -91,7 +88,7 @@ iyr:2011 ecl:brn hgt:59in"""
     ]
     assert count_valid_passports(example_batch) == 2
 
-    passport_list = read_input("input")
+    passport_list = read_input("test_input")
     print("Part 1", count_valid_passports(passport_list))
 
     print("Part 2", count_valid_passports(passport_list, strict=True))
