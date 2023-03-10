@@ -1,7 +1,5 @@
 import re
 from itertools import product
-
-import numpy as np
 import pandas as pd
 
 
@@ -31,17 +29,15 @@ def get_cal_score(quantity, pantry):
     return max(0, (quantity * pantry["calories"]).sum())
 
 
-properties = read_data()
-ingredients = properties.index.to_list()
-quantities = [
-    opt for opt in product(range(101), repeat=len(ingredients)) if sum(opt) == 100
-]
+data = read_data()
+items = data.index.to_list()
+qtys = [opt for opt in product(range(101), repeat=len(items)) if sum(opt) == 100]
 
 score_p1, score_p2 = 0, 0
-for quant in quantities:
-    if get_cal_score(quant, properties) == 500:
-        score_p2 = max(score_p2, get_score(quant, properties))
-    score_p1 = max(score_p1, get_score(quant, properties))
+for qty in qtys:
+    if get_cal_score(qty, data) == 500:
+        score_p2 = max(score_p2, get_score(qty, data))
+    score_p1 = max(score_p1, get_score(qty, data))
 
 print("part 1:", score_p1)
 print("part 2:", score_p2)
