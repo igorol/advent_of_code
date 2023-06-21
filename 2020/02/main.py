@@ -2,7 +2,6 @@ import numpy as np
 
 
 def count_valid_pwds(pw_list, policy="new"):
-
     resp = []
     for pw_line in pw_list:
         items = pw_line.split(" ")
@@ -20,7 +19,6 @@ def count_valid_pwds(pw_list, policy="new"):
 
 
 if __name__ == "__main__":
-
     with open("input", "r") as f:
         in_list = [i.rstrip() for i in f.readlines()]
 

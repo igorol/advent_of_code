@@ -1,5 +1,6 @@
-import pandas as pd
 from itertools import combinations
+
+import pandas as pd
 
 
 def part2(row):
@@ -8,6 +9,6 @@ def part2(row):
             return int(max(pair) / min(pair))
 
 
-data = pd.read_csv('input', sep='\t', header=None)
-print(f'Part 1: {data.apply(lambda row: max(row) - min(row), axis=1).sum()}')
-print(f'Part 2: {data.apply(lambda row: part2(row), axis=1).sum()}')
+data = pd.read_csv("input", sep="\t", header=None)
+print(f"Part 1: {data.apply(lambda row: max(row) - min(row), axis=1).sum()}")
+print(f"Part 2: {data.apply(lambda row: part2(row), axis=1).sum()}")

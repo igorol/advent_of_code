@@ -5,7 +5,6 @@ def read_grid():
 
 
 def count_trees(this_grid, right=3, down=1):
-
     max_y, max_x = (len(this_grid), len(this_grid[0]))
     num_trees = 0
     y, x = [0, 0]
@@ -21,7 +20,6 @@ def count_trees(this_grid, right=3, down=1):
 
 
 if __name__ == "__main__":
-
     s = """..##.......
     #...#...#..
     .#....#..#.

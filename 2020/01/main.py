@@ -10,7 +10,6 @@ def expenses(in_list, n):
 
 
 if __name__ == "__main__":
-
     test_list = [1721, 979, 366, 299, 675, 1456]
 
     assert expenses(test_list, 2) == 514579

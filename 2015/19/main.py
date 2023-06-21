@@ -1,6 +1,6 @@
+import re
 from collections import defaultdict
 from random import shuffle
-import re
 
 
 def read_data(part=1):

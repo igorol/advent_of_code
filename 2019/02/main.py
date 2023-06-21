@@ -41,6 +41,7 @@ def restore_gravity(list_of_codes):
 list_of_codes = reset_memory()
 print(f"Part 1 : {intcode(restore_gravity(list_of_codes))[0]}")
 
+
 # Part 2
 def find_noun_and_verb():
     for noun, verb in list(itertools.permutations(range(100), 2)):

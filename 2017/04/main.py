@@ -1,5 +1,6 @@
-import pandas as pd
 from collections import Counter
+
+import pandas as pd
 
 
 def valid_passphrase(row):
@@ -15,10 +16,12 @@ def has_anagram(row):
     return False
 
 
-data = pd.read_csv('input', header=None)
+data = pd.read_csv("input", header=None)
 
-print(f'Part 1: {data.apply(valid_passphrase, axis=1).sum()}')
-print(f'Part 2: {data.apply(lambda row: valid_passphrase(row) and not has_anagram(row), axis=1).sum()}')
+print(f"Part 1: {data.apply(valid_passphrase, axis=1).sum()}")
+print(
+    f"Part 2: {data.apply(lambda row: valid_passphrase(row) and not has_anagram(row), axis=1).sum()}"
+)
 
 # Part 1: 337
 # Part 2: 231

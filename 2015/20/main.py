@@ -1,6 +1,7 @@
-import numpy as np
-from functools import reduce, lru_cache
 from collections import defaultdict
+from functools import lru_cache, reduce
+
+import numpy as np
 
 
 @lru_cache()

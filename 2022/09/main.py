@@ -6,7 +6,6 @@ def node_dist(node_a, node_b):
 
 
 class Rope:
-
     MAX_DIST = 1.5
 
     def __init__(self, x, y, num_tails=1):

@@ -60,7 +60,6 @@ class Cave:
             return True
 
         while True:
-
             if pos[1] > self.abyss_depth:
                 return True
 

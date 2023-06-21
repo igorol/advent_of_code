@@ -1,5 +1,5 @@
-from itertools import product
 from collections import namedtuple
+from itertools import product
 
 Item = namedtuple("Item", ["Name", "Cost", "Damage", "Armor"])
 weapons = [

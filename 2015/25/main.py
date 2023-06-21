@@ -1,4 +1,5 @@
 import re
+
 import numpy as np
 
 ans_row, ans_column = [int(s) for s in re.findall(r"\d+", open("input").read())]

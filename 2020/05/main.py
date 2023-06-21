@@ -26,7 +26,6 @@ def get_missing_seat(bp_list):
 
 
 if __name__ == "__main__":
-
     assert get_row("FBFBBFFRLR") == 44
     assert get_row("BFFFBBFRRR") == 70
     assert get_row("FFFBBBFRRR") == 14
