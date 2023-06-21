@@ -6,7 +6,18 @@ from collections import defaultdict
 @lru_cache()
 def divisors(n):
     step = 2 if n % 2 else 1
-    return sorted(set(reduce(list.__add__, ([i, n // i] for i in range(1, int(np.sqrt(n)) + 1, step) if n % i == 0))))
+    return sorted(
+        set(
+            reduce(
+                list.__add__,
+                (
+                    [i, n // i]
+                    for i in range(1, int(np.sqrt(n)) + 1, step)
+                    if n % i == 0
+                ),
+            )
+        )
+    )
 
 
 def part1(puzzle_input):
@@ -33,8 +44,8 @@ def part2(puzzle_input):
 
 
 inp = 34_000_000
-print('part 1:', part1(inp))
-print('part 2:', part2(inp))
+print("part 1:", part1(inp))
+print("part 2:", part2(inp))
 
 # part 1: 786240
 # part 2: 831600

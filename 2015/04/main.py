@@ -2,7 +2,6 @@ from hashlib import md5
 
 
 def mine_adventcoins(input_string):
-
     counter, five_zeros_number, six_zeros_number = 0, 0, 0
 
     while True:

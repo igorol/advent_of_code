@@ -4,12 +4,12 @@ import re
 
 
 def read_data(part=1):
-    data = open('input').read().splitlines()
+    data = open("input").read().splitlines()
     replacements = defaultdict(list)
     molecule = data[-1]
     for line in data:
-        if '=>' in line:
-            left, right = line.split('=>')
+        if "=>" in line:
+            left, right = line.split("=>")
             if part == 1:
                 replacements[left.strip()].append(right.strip())
             elif part == 2:
@@ -20,14 +20,14 @@ def read_data(part=1):
 def part1():
     replacements, molecule = read_data(part=1)
     variations = []
-    split_molecule = re.findall('[A-Z][^A-Z]*', molecule)
+    split_molecule = re.findall("[A-Z][^A-Z]*", molecule)
 
     for i, atom in enumerate(split_molecule):
         if atom in replacements.keys():
             for value in replacements[atom]:
                 m = split_molecule.copy()
                 m[i] = value
-                variations.append(''.join(m))
+                variations.append("".join(m))
     return len(set(variations))
 
 
@@ -35,7 +35,7 @@ def part2():
     replacements, molecule = read_data(part=2)
     steps = 0
     result = molecule
-    while result != 'e':
+    while result != "e":
         temp_molecule = result
         keys = list(replacements.keys())
         shuffle(keys)
@@ -50,8 +50,8 @@ def part2():
     return steps
 
 
-print('part 1:', part1())
-print('part 2:', part2())
+print("part 1:", part1())
+print("part 2:", part2())
 
 # part 1: 576
 # part 2: 207
