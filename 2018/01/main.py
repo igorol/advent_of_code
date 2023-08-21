@@ -10,5 +10,3 @@ for frequency in accumulate(cycle(data)):
         print(f"Part 2: {frequency}")
         break
     seen_frequencies.add(frequency)
-    
-
