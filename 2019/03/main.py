@@ -47,3 +47,6 @@ min_steps = min(
 )
 
 print("Part 2:", min_steps)
+
+# Part 1: 2050
+# Part 2: 21666
