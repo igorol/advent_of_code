@@ -25,3 +25,6 @@ for line in data:
 
 print("Part 1:", sum(valid_games))
 print("Part 2:", sum(game_powers))
+
+# Part 1: 2600
+# Part 2: 86036
