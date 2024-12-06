@@ -20,9 +20,9 @@ def solve(update, rules, part=1):
     if part == 1 and all(check_rules):
         return update[int(len(update) / 2)]
     elif part == 2 and not all(check_rules):
-        half = math.floor(len(update) / 2)
+        half_len = math.floor(len(update) / 2)
         for item in update:
-            if sum(rule[0] == item and rule[1] in update for rule in rules) == half:
+            if sum(rule[0] == item and rule[1] in update for rule in rules) == half_len:
                 return item
             else:
                 continue
@@ -30,8 +30,8 @@ def solve(update, rules, part=1):
         return 0
 
 
-print("Part 1:", sum(solve(update, rules, part=1) for update in updates))
-print("Part 2:", sum(solve(update, rules, part=2) for update in updates))
+print("Part 1:", sum((solve(update, rules, part=1) for update in updates)))  # type: ignore
+print("Part 2:", sum((solve(update, rules, part=2) for update in updates)))  # type: ignore
 
 # Part 1: 4959
 # Part 2: 4655
