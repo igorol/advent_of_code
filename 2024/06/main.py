@@ -1,8 +1,7 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import multiprocessing
 import tqdm
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 def move(grid, y, x, direction):
 
@@ -33,7 +32,6 @@ def move(grid, y, x, direction):
     return y, x, direction
 
 def one(grid, obstacle_x, obstacle_y):
-        start = time.time()
         original = grid[obstacle_y, obstacle_x]
         dir = "north"
         if original == b"#":
@@ -49,14 +47,13 @@ def one(grid, obstacle_x, obstacle_y):
             try:
                 last_point_in_path = this_point_in_path
                 y, x, dir = move(grid, y, x, dir)
-                this_point_in_path = True if ((y, x) in points) and (last_point_in_path == False) else False
-                points.append((y, x))             
+                this_point_in_path = True if ((y, x, dir) in points) else False
+                points.append((y, x, dir))     
+                if this_point_in_path and last_point_in_path:
+                    return 1        
             except IndexError:
                 return 0
             
-            if time.time() - start > 10:
-                return 1
-
         
 
 grid = np.array(
@@ -77,21 +74,14 @@ while True:
 
 print("Part 1:", len(set(points)))
 
-executor = ThreadPoolExecutor(max_workers=8)
-num_obstacles = 0
-
-with ThreadPoolExecutor(max_workers=8) as executor:
+with ProcessPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
     futures, results = [], []
     for obstacle_x in range(nx):
         for obstacle_y in range(ny):
             futures.append(executor.submit(one, grid, obstacle_x, obstacle_y))
     for fut in tqdm.tqdm(as_completed(futures), disable=None, total=len(futures)):
-        results.append(fut.result(timeout=30))
+        results.append(fut.result())
     
-
-        
-            
-
 print("Part 2:", sum(results))
 # Part 1:  5095
 # Part 2:  1933
